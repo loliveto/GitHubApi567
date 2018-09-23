@@ -16,7 +16,6 @@ def display(userID):
     data = r.json()
     # The list that will be used to easily test the data
     testlist = []
-    print(data)
     for repo in data:
         csite = "https://api.github.com/repos/"+userID+"/"+repo["name"]+"/commits"
         cr = requests.get(csite)
@@ -24,8 +23,9 @@ def display(userID):
         print("Repo: "+repo["name"]+" Number of commits: "+str(len(cdata)))
         testlist.append((str(repo["name"]), len(cdata)))
 
-    print(testlist)
     return testlist
 
 if __name__ == "__main__":
     display("nhilden1114")
+    display("loliveto")
+    display("richkempinski")

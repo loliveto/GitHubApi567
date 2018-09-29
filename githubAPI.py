@@ -17,6 +17,7 @@ def display(userID):
     # The list that will be used to easily test the data
     testlist = []
     for repo in data:
+        #print(userID + ": " + repo)
         csite = "https://api.github.com/repos/"+userID+"/"+repo["name"]+"/commits"
         cr = requests.get(csite)
         cdata = cr.json()

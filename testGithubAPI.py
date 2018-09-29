@@ -4,11 +4,12 @@ from mock import mock, Mock
 from githubAPI import display
 
 class TestGitHubAPI(unittest.TestCase):
-    
+
     @mock.patch('requests.get')
     def test_requests(self, fake_get):
         fake_response = [Mock(), Mock(), Mock(), Mock(), Mock()]
-        fake_response[0].json.return_value = [{'name': 'hellogitworld'}, {'name': 'helloworld'}, {'name': 'Project1'}, {'name': 'threads-of-life'}]
+        fake_response[0].json.return_value = [{'name': 'hellogitworld'}, {'name': 'helloworld'}, {'name': 'Project1'},\
+            {'name': 'threads-of-life'}]
         fake_response[1].json.return_value = [{'commit': 2},{'commit': 3}]
         fake_response[2].json.return_value = [{'commit': 2}, {'commit': 3}, {'commit':6}]
         fake_response[3].json.return_value = [{'commit': 2},{'commit': 3}]
@@ -17,13 +18,11 @@ class TestGitHubAPI(unittest.TestCase):
 
         self.assertEqual(display("richkempinski"),[('hellogitworld', 2), ('helloworld', 3), ('Project1', 2), ('threads-of-life', 3)])
 
-    # @MagicMock.patch('requests.get')
-    # def mock_requests(mock_req):
-    #     print(mock_req)
     @mock.patch('requests.get')
     def testRichkempinski(self, fake_get):
         fake_response = [Mock(), Mock(), Mock(), Mock(), Mock()]
-        fake_response[0].json.return_value = [{'name': 'hellogitworld'}, {'name': 'helloworld'}, {'name': 'Project1'}, {'name': 'threads-of-life'}]
+        fake_response[0].json.return_value = [{'name': 'hellogitworld'}, {'name': 'helloworld'}, {'name': 'Project1'},\
+            {'name': 'threads-of-life'}]
         fake_response[1].json.return_value = [{'commit': 2},{'commit': 3}]
         fake_response[2].json.return_value = [{'commit': 2}, {'commit': 3}, {'commit':6}]
         fake_response[3].json.return_value = [{'commit': 2},{'commit': 3}]
@@ -39,7 +38,8 @@ class TestGitHubAPI(unittest.TestCase):
             {'name':'GitHubApi567'}, {'name':'HW01triangles'}, {'name':'newD6'}, {'name':'SSW322-Project'},\
             {'name':'SSW567HelloWorld'}, {'name':'Triangle567'}]
         fake_response[1].json.return_value = [{"commit": 2}]
-        fake_response[2].json.return_value = [{"commit": 2}, {"commit": 2}, {"commit": 2}, {"commit": 2}, {"commit": 2}, {"commit": 2}, {"commit": 2}, {"commit": 2}]
+        fake_response[2].json.return_value = [{"commit": 2}, {"commit": 2}, {"commit": 2}, {"commit": 2}, {"commit": 2},\
+        {"commit": 2}, {"commit": 2}, {"commit": 2}]
         fake_response[3].json.return_value = [{"commit": 2}, {"commit": 2}, {"commit": 2}, {"commit": 2}, {"commit": 2}]
         fake_response[4].json.return_value = [{"commit": 2}, {"commit": 2}, {"commit": 2}, {"commit": 2}, {"commit": 2}, {"commit": 2}]
         fake_response[5].json.return_value = [{"commit": 2}, {"commit": 2}, {"commit": 2}]
@@ -57,7 +57,8 @@ class TestGitHubAPI(unittest.TestCase):
             {"name": 'GEDCOMProject'}, {"name": 'SSW567'}]
         fake_response[1].json.return_value = [{"commit": 2},{"commit": 3},{"commit": 3},{"commit": 3}]
         fake_response[2].json.return_value = [{"commit": 2},{"commit": 3}]
-        fake_response[3].json.return_value = [{"commit": 2},{"commit": 3},{"commit": 3},{"commit": 3},{"commit": 3},{"commit": 3},{"commit": 3},{"commit": 3}]
+        fake_response[3].json.return_value = [{"commit": 2},{"commit": 3},{"commit": 3},{"commit": 3},{"commit": 3},{"commit": 3},\
+            {"commit": 3},{"commit": 3}]
         fake_response[4].json.return_value = [{"commit": 2}]
         fake_response[5].json.return_value = [{"commit": 2}]
         fake_get.side_effect = fake_response
